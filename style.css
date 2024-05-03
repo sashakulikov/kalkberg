@@ -12,6 +12,28 @@ body {
   font-size: 3vw;
   font-family: "Hershey Kalkberg", Arial, sans-sans-serif;
   line-height:3.2vw;
+  animation: glow 2s infinite;
+}
+
+h1 {
+  font-size: 3vw;
+}
+
+
+.menu {
+  display: none;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Initial glow effect */
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 255, 0, 0.8); /* Intermediate glow effect */
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Final glow effect */
+  }
 }
 
 /* Media query for minimum font size */
@@ -52,8 +74,8 @@ top: 50%;
 -ms-transform: translateY(-50%);
 transform: translateY(-50%);
   text-align: left;
-  padding-left: 10vh;
-  padding-right: 10vh;
+  padding-left: 7%;
+  padding-right: 7%;
   left: 0px; /* Adjust the left offset as needed */
 }
 
@@ -62,7 +84,7 @@ transform: translateY(-50%);
   position: fixed;
     background-color: black;
     width:100%;
-    top: 0px;
+    top: 8px;
     padding-bottom: 8px;
 
 }
@@ -74,25 +96,37 @@ transform: translateY(-50%);
 }
 
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   body {
-    font-size: 26px; /* Minimum font size */
-    line-height: 28px; /* Adjust line height accordingly */
+    font-size: 24px; /* Minimum font size */
+    line-height: 26px; /* Adjust line height accordingly */
+  }
+
+  h1 {
+    font-size: 24px;
   }
   .colophon {
-    padding-left: 7vh;
-    padding-right: 7vh;
+    padding-left: 4vh;
+    padding-right: 4vh;
   }
   .header {
-    top: 5px;
+    top: 8px;
   }
   .footer {
-    bottom: 7px;
+    bottom: 9px;
   }
   .lbutton {
-    left: -36px;
+    left: 0px;
+    display: none;
   }
   .rbutton {
-    right: -26px;
+    right: 0px;
+    display: none;
+  }
+
+  .menu {
+    position: relative;
+    display: block;
+    top: -15px;
   }
 }
