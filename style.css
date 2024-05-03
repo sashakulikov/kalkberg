@@ -130,6 +130,6 @@ transform: translateY(-50%);
   .menu {
     position: relative;
     display: block;
-    top: 0px;
+    top: 35px;
   }
 }
