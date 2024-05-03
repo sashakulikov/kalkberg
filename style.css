@@ -99,6 +99,7 @@ transform: translateY(-50%);
 }
 
 
+
 @media (max-width: 700px) {
   body {
     font-size: 24px; /* Minimum font size */
