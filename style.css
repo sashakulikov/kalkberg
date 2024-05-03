@@ -15,9 +15,7 @@ body {
   /* animation: glow 2s infinite; */
 }
 
-h1 {
-  font-size: 3vw;
-}
+
 
 
 .menu {
@@ -132,6 +130,6 @@ transform: translateY(-50%);
   .menu {
     position: relative;
     display: block;
-    top: -15px;
+    top: 0px;
   }
 }
