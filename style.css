@@ -12,7 +12,7 @@ body {
   font-size: 3vw;
   font-family: "Hershey Kalkberg", Arial, sans-sans-serif;
   line-height:3.2vw;
-  animation: glow 2s infinite;
+  /* animation: glow 2s infinite; */
 }
 
 h1 {
@@ -24,7 +24,7 @@ h1 {
   display: none;
 }
 
-@keyframes glow {
+/* @keyframes glow {
   0% {
     text-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Initial glow effect */
   }
@@ -35,6 +35,7 @@ h1 {
     text-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Final glow effect */
   }
 }
+*/
 
 /* Media query for minimum font size */
 @media (max-height: 500px) {
@@ -61,7 +62,7 @@ h1 {
 .rbutton {
   position: fixed;
   top: 50%;
-  right: 0vh; /* Adjust the right offset as needed */
+  right: -3vh; /* Adjust the right offset as needed */
   transform: translateY(-50%) rotate(90deg); /* Rotate clockwise */
   z-index: 1000;
 }
@@ -92,7 +93,7 @@ transform: translateY(-50%);
 .footer {
   position: fixed;
   width:100%;
-    bottom: 0;
+    bottom: 9px;
 }
 
 
