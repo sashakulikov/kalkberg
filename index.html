@@ -59,7 +59,7 @@ function toggleColophon() {
 function updateTime() {
   var now = new Date(); // Get current date and time
   var options = { timeZone: 'Europe/Berlin', weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false, day: 'numeric', formatMatcher: 'best fit' };
-  var dateString = new Intl.DateTimeFormat('en-UK', options).format(now); // Format the date and time for Germany's timezone
+  var dateString = new Intl.DateTimeFormat('en-DE', options).format(now); // Format the date and time for Germany's timezone
   var dateTimeElement = document.querySelector('.footer .date-time');
   if (dateTimeElement) {
     dateTimeElement.textContent = dateString;
