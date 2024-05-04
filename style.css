@@ -158,8 +158,8 @@ transform: translateY(-50%);
     font-size: 24px;
   }
   .colophon {
-    padding-left: 1vh;
-    padding-right: 1.5vh;
+    padding-left: 2vh;
+    padding-right: 1.8vh;
   }
   .header {
     top: 8px;
@@ -214,8 +214,8 @@ transform: translateY(-50%);
 }
 
 .colophon {
-  padding-left: 13%;
-  padding-right: 13%;
+  padding-left: 8%;
+  padding-right: 8%;
 }
 
 }
