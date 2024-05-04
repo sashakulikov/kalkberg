@@ -18,8 +18,14 @@ body {
 }
 
 
+a {
+    text-decoration: none; /* Remove default underline */
+    color: #00ff00;
+}
 
-
+a:hover {
+      text-decoration: underline; /* Remove default underline */
+}
 
 .menu {
   display: none;
