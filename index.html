@@ -33,13 +33,11 @@
     Info
   </div>
 
-  <div class='image'>
-  <img id='frog' src="frog.png">
-  </div>
-
   <div class='colophon'>
     Experience the enchantment of the Lüneburg’s Kalkberg from April till June… A pit with a pond which once was a rock. Here we• the croaking frogs• greet wonderers with our nocturnes… Like in fairytales• we transform the natural world into the magical realm… Amidst the ancient limestone formations• lush greenery• and bouquet of the lilac• we enamour you with our vibrations… As night descends• step into the the infinitely channeled soundscape• where our chorus fills the air with a sonic adventure…
   </div>
+
+  <iframe frameborder="0" allowfullscreen="" scrolling="no" allow="autoplay;fullscreen" src="https://onelineplayer.com/player.html?autoplay=true&autopause=false&muted=true&loop=true&url=https%3A%2F%2Fvimeo.com%2F942788638%3Fshare%3Dcopy&poster=&time=false&progressBar=false&overlay=false&muteButton=false&fullscreenButton=false&style=light&quality=auto&playButton=false" style="height: 100%; width: 100%; aspect-ratio: 1920 / 1440;"></iframe>
 
   <div class='footer'>
     <div class='menu'>
@@ -54,24 +52,15 @@
     let colophonVisible = false;
 
     function toggleInfo() {
-      var imageContainer = document.querySelector('.image');
       var colophon = document.querySelector('.colophon');
 
-      if (imageContainer.style.display === 'none') {
-        imageContainer.style.display = 'block';
-        colophon.style.display = 'none';
-      } else {
-        imageContainer.style.display = 'none';
+      if (colophon.style.display === 'none' || colophon.style.display === '') {
         colophon.style.display = 'block';
-      }
-
-      // Apply centering styles dynamically based on whether the image container is displayed or not
-      if (imageContainer.style.display === 'block') {
-        imageContainer.style.textAlign = 'center';
       } else {
-        imageContainer.style.textAlign = ''; // Reset to default if the container is hidden
+        colophon.style.display = 'none';
       }
     }
+
 
 
     function updateTime() {
@@ -89,7 +78,7 @@
 
          // Update text content based on the time of day
          var activityElement = document.querySelector('.footer .activity');
-         if (hour >= 6 && hour < 17) {
+         if (hour >= 6 && hour < 19) {
            activityElement.textContent = 'No croaking';
          } else {
            activityElement.textContent = 'Now croaking';
