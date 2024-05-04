@@ -9,9 +9,9 @@ src: url("HersheyKalkberg-Regular.woff") format("woff"),
 body {
   background-color: black;
   color: #00ff00;
-  font-size: 3vw;
+  font-size: calc(2vw + 2vh);
   font-family: "Hershey Kalkberg", Arial, sans-sans-serif;
-  line-height:3.2vw;
+  line-height:calc(2vw + 2.5vh);
   /* animation: glow 2s infinite; */
   display: block;
 
@@ -160,11 +160,36 @@ transform: translateY(-50%);
 
 @media (max-height: 500px) {
   body {
-    font-size: 18px; /* Minimum font size */
-    line-height: 22px; /* Adjust line height accordingly */
+    font-size: 22px; /* Minimum font size */
+    line-height: 26px; /* Adjust line height accordingly */
   }
   h1 {
     font-size: 20px;
+  }
+  .menu {
+    display: none;
+}
+.lbutton {
+  display: block;
+}
+.rbutton {
+  display: block;
+}
+
+.colophon {
+  padding-left: 8%;
+  padding-right: 8%;
+}
+
+}
+
+@media (max-height: 350px) {
+  body {
+    font-size: 16px; /* Minimum font size */
+    line-height: 18px; /* Adjust line height accordingly */
+  }
+  h1 {
+    font-size: 16px;
   }
   .menu {
     display: none;
