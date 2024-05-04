@@ -72,7 +72,7 @@ a:hover {
 
 
 .rbutton {
-  position: absolute;
+  position: fixed;
   top: 50%;
   right: 0vh; /* Fixed to the right edge */
   transform: translateY(-50%) rotate(90deg); /* Rotate clockwise */
