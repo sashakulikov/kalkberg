@@ -40,7 +40,7 @@
       <span class="button playButton" onclick="playAudio()">Play</span>&ensp;
       <span class="button" onclick="toggleColophon()">Info</span>
     </div>
-    Now singing <br>
+    <span class="activity">Now croaking</span> <br>
     <span class="date-time">Thu, May 2, 23:03</span>, <span class="temp">25°C</span><!-- Add this line for temperature display -->
   </div>
 
@@ -58,26 +58,46 @@
     }
 
     function updateTime() {
-      var now = new Date(); // Get current date and time
-      var options = {
-        timeZone: 'Europe/Berlin',
-        weekday: 'short',
-        month: 'short',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        hour12: false,
-        day: 'numeric',
-        formatMatcher: 'best fit'
-      };
-      var dateString = new Intl.DateTimeFormat('en-DE', options).format(now); // Format the date and time for Germany's timezone
-      var dateTimeElement = document.querySelector('.footer .date-time');
-      if (dateTimeElement) {
-        dateTimeElement.textContent = dateString;
-      } else {
-        console.error('Date/time element not found');
-      }
-    }
+         var now = new Date();
+         var hour = now.getHours();
+         var body = document.querySelector('body');
+
+         // Calculate the green value based on the time of day
+         var brightestGreen = 120; // Brightest green value (10:00)
+         var darkestGreen = 20; // Darkest green value (22:00)
+         var currentGreen = brightestGreen - ((brightestGreen - darkestGreen) * ((hour - 10) / 12)); // Adjust the hour range (10:00 to 22:00)
+         var backgroundColor = 'rgb(0, ' + Math.round(currentGreen) + ', 0)';
+
+         body.style.backgroundColor = backgroundColor;
+
+         // Update text content based on the time of day
+         var activityElement = document.querySelector('.footer .activity');
+         if (hour >= 6 && hour < 17) {
+           activityElement.textContent = 'No activity';
+         } else {
+           activityElement.textContent = 'Now croaking';
+         }
+
+         // Update date and time in the footer
+         var options = {
+           timeZone: 'Europe/Berlin',
+           weekday: 'short',
+           month: 'short',
+           day: 'numeric',
+           hour: 'numeric',
+           minute: 'numeric',
+           hour12: false,
+           day: 'numeric',
+           formatMatcher: 'best fit'
+         };
+         var dateString = new Intl.DateTimeFormat('en-DE', options).format(now); // Format the date and time for Germany's timezone
+         var dateTimeElement = document.querySelector('.footer .date-time');
+         if (dateTimeElement) {
+           dateTimeElement.textContent = dateString;
+         } else {
+           console.error('Date/time element not found');
+         }
+       }
 
 
     async function updateTemperature() {
@@ -127,6 +147,7 @@
             document.querySelectorAll('.playButton').forEach(button => button.textContent = 'Play'); // Change button text to 'Play'
           }
         }
+
   </script>
 
 </body>

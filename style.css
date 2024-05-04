@@ -13,7 +13,10 @@ body {
   font-family: "Hershey Kalkberg", Arial, sans-sans-serif;
   line-height:3.2vw;
   /* animation: glow 2s infinite; */
+  display: block;
+
 }
+
 
 
 
@@ -88,10 +91,12 @@ transform: translateY(-50%);
   display: none;
 }
 
+#audioPlayer {
+  display: none; /* Hide the default audio player */
+}
 
 .header {
   position: fixed;
-    background-color: black;
     width:100%;
     top: 8px;
     padding-bottom: 8px;
