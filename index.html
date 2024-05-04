@@ -39,20 +39,74 @@
     <span class="button">Play</span>&ensp;
     <span class="button">Info</span>
   </div>
-
-      Now singing
-  <br>Thu, May 2, 23:03, 25=C
+  Now singing
+  <br>Thu, May 2, 23:03, <span class="temp">25°C</span><!-- Add this line for temperature display -->
 </div>
 
 <script>
+let colophonVisible = false;
+
 function toggleColophon() {
   var colophon = document.querySelector('.colophon');
-  if (colophon.style.display === 'none' || colophon.style.display === '') { // Check if colophon is hidden or not set
-    colophon.style.display = 'block'; // Show colophon
+  if (!colophonVisible) {
+    colophon.style.display = 'block';
+    colophonVisible = true;
   } else {
-    colophon.style.display = 'none'; // Hide colophon
+    colophon.style.display = colophon.style.display === 'none' ? 'block' : 'none';
   }
 }
+
+function updateTime() {
+  var now = new Date(); // Get current date and time
+  var options = { timeZone: 'Europe/Berlin', weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false };
+  var dateString = new Intl.DateTimeFormat('en-UK', options).format(now); // Format the date and time for Germany's timezone
+  var dateElement = document.querySelector('.footer .date');
+  if (dateElement) {
+    dateElement.textContent = dateString;
+  } else {
+    console.error('Date element not found');
+  }
+}
+
+async function updateTemperature() {
+  const url = 'https://api.brightsky.dev/current_weather?lat=53.2484&lon=10.3969';
+  const options = { method: 'GET', headers: { Accept: 'application/json' } };
+
+  try {
+    const response = await fetch(url, options);
+    const data = await response.json();
+    console.log(data);
+
+    const temperature = Math.round(data.weather.temperature);
+    console.log('Temperature:', temperature);
+
+    const tempElement = document.querySelector('.footer .temp');
+
+    if (tempElement) {
+      tempElement.textContent = temperature + '°C';
+    } else {
+      console.error('Temp element not found');
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Call updateTime function to initially display the current date and time
+updateTime();
+
+// Call updateTemperature function to fetch and display the temperature every 5 minutes
+updateTemperature();
+setInterval(updateTemperature, 5 * 60 * 1000); // Update temperature every 5 minutes
+
+
+
+
+
+
+
+
+
  </script>
 
 </body>
