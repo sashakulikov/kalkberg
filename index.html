@@ -39,8 +39,8 @@
     <span class="button">Play</span>&ensp;
     <span class="button">Info</span>
   </div>
-  Now singing
-  <br>Thu, May 2, 23:03, <span class="temp">25°C</span><!-- Add this line for temperature display -->
+Now singing <br>
+  <span class="date-time">Thu, May 2, 23:03</span>, <span class="temp">25°C</span><!-- Add this line for temperature display -->
 </div>
 
 <script>
@@ -60,13 +60,14 @@ function updateTime() {
   var now = new Date(); // Get current date and time
   var options = { timeZone: 'Europe/Berlin', weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false };
   var dateString = new Intl.DateTimeFormat('en-UK', options).format(now); // Format the date and time for Germany's timezone
-  var dateElement = document.querySelector('.footer .date');
-  if (dateElement) {
-    dateElement.textContent = dateString;
+  var dateTimeElement = document.querySelector('.footer .date-time');
+  if (dateTimeElement) {
+    dateTimeElement.textContent = dateString;
   } else {
-    console.error('Date element not found');
+    console.error('Date/time element not found');
   }
 }
+
 
 async function updateTemperature() {
   const url = 'https://api.brightsky.dev/current_weather?lat=53.2484&lon=10.3969';
@@ -92,16 +93,13 @@ async function updateTemperature() {
   }
 }
 
-// Call updateTime function to initially display the current date and time
+// Call updateTime function initially and every second to continuously update the date and time
 updateTime();
+setInterval(updateTime, 1000);
 
-// Call updateTemperature function to fetch and display the temperature every 5 minutes
+// Call updateTemperature function initially and then every 5 minutes to fetch and display the temperature
 updateTemperature();
 setInterval(updateTemperature, 5 * 60 * 1000); // Update temperature every 5 minutes
-
-
-
-
 
 
 
