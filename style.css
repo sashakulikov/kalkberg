@@ -29,6 +29,7 @@ iframe {
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
 }
 
 
@@ -118,6 +119,7 @@ transform: translateY(-50%);
   left: 0px; /* Adjust the left offset as needed */
   display: none;
   overflow: hidden;
+  z-index: 999;
 }
 
 #audioPlayer {
