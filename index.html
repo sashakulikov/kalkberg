@@ -35,17 +35,24 @@
 
 
 <div class='footer'>
-  <div class='menu' onclick="toggleColophon()">Play &ensp;Info</div>
+  <div class='menu' onclick="toggleColophon()">
+    <span class="button">Play</span>&ensp;
+    <span class="button">Info</span>
+  </div>
 
       Now singing
   <br>Thu, May 2, 23:03, 25=C
 </div>
 
 <script>
-   function toggleColophon() {
-     var colophon = document.querySelector('.colophon');
-     colophon.style.display = (colophon.style.display === 'none') ? 'block' : 'none';
-   }
+function toggleColophon() {
+  var colophon = document.querySelector('.colophon');
+  if (colophon.style.display === 'none' || colophon.style.display === '') { // Check if colophon is hidden or not set
+    colophon.style.display = 'block'; // Show colophon
+  } else {
+    colophon.style.display = 'none'; // Hide colophon
+  }
+}
  </script>
 
 </body>

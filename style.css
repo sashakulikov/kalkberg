@@ -80,6 +80,7 @@ transform: translateY(-50%);
   padding-left: 7%;
   padding-right: 7%;
   left: 0px; /* Adjust the left offset as needed */
+  display: none;
 }
 
 
@@ -137,10 +138,13 @@ transform: translateY(-50%);
         text-decoration: none; /* Remove default underline */
 
   }
+  .menu .button {
+  border: none;
+  cursor: pointer;
+}
 
-  .menu:hover {
-      text-decoration: underline; /* Add underline on hover */
-      cursor: pointer; /* Change cursor to pointer on hover */
-    }
+.menu .button:hover {
+  text-decoration: underline;
+}
   }
 }
