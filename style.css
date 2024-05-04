@@ -158,12 +158,27 @@ transform: translateY(-50%);
 }
   }
 
-@media (max-height: 600px) {
+@media (max-height: 500px) {
   body {
-    font-size: 15px; /* Minimum font size */
-    line-height: 18px; /* Adjust line height accordingly */
+    font-size: 18px; /* Minimum font size */
+    line-height: 22px; /* Adjust line height accordingly */
   }
+  h1 {
+    font-size: 20px;
+  }
+  .menu {
+    display: none;
+}
+.lbutton {
+  display: block;
+}
+.rbutton {
+  display: block;
 }
 
+.colophon {
+  padding-left: 8%;
+  padding-right: 8%;
+}
 
 }
