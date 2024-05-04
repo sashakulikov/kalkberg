@@ -157,4 +157,13 @@ transform: translateY(-50%);
   text-decoration: underline;
 }
   }
+
+@media (max-height: 600px) {
+  body {
+    font-size: 15px; /* Minimum font size */
+    line-height: 18px; /* Adjust line height accordingly */
+  }
+}
+
+
 }
