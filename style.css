@@ -10,13 +10,29 @@ body {
   background-color: black;
   color: #00ff00;
   font-size: calc(2vw + 2vh);
+  font-kerning: normal;
   font-family: "Hershey Kalkberg", Arial, sans-sans-serif;
   line-height:calc(2vw + 2.5vh);
   /* animation: glow 2s infinite; */
   display: block;
 
+
 }
 
+.image {
+  text-align: center; /* Center the image horizontally by default */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  width: 80%; /* Adjust width as needed */
+  height: 60%; /* Adjust height as needed */
+  z-index: 0; /* Ensure it's above other elements */
+}
+
+#frog {
+  height: 80%;
+}
 
 a {
     text-decoration: none; /* Remove default underline */

@@ -9,6 +9,8 @@
   <meta name="description" content="">
   <meta http-equiv="Content-Language" content="de, fr, it, en">
   <meta name="author" content="">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>Nocturnal Serenade</title>
 </head>
 
 <body>
@@ -27,18 +29,22 @@
     Play
   </div>
 
-  <div class='rbutton' onclick="toggleColophon()">
+  <div class='rbutton' onclick="toggleInfo()">
     Info
   </div>
 
+  <div class='image'>
+  <img id='frog' src="frog.png">
+  </div>
+
   <div class='colophon'>
-    Experience the enchantment of the Lüneburg’s Kalkberg in April-June. A pit with a pond which once was a rock… Here we• the croaking frogs• greet wonderers with our nocturnes… As in an old tales• we transform the natural world into the magical realm… Amidst the ancient limestone formations• lush greenery, and bouquet of the lilac• we enamour you with our vibrations… As night descends• step into the the infinitely channeled soundscape• where our chorus fills the air with a sonic adventure…
+    Experience the enchantment of the Lüneburg’s Kalkberg from April till June… A pit with a pond which once was a rock. Here we• the croaking frogs• greet wonderers with our nocturnes… Like in fairytales• we transform the natural world into the magical realm… Amidst the ancient limestone formations• lush greenery• and bouquet of the lilac• we enamour you with our vibrations… As night descends• step into the the infinitely channeled soundscape• where our chorus fills the air with a sonic adventure…
   </div>
 
   <div class='footer'>
     <div class='menu'>
       <span class="button playButton" onclick="playAudio()">Play</span>&ensp;
-      <span class="button" onclick="toggleColophon()">Info</span>
+      <span class="button" onclick="toggleInfo()">Info</span>
     </div>
     <span class="activity">Now croaking</span> <br>
     <span class="date-time">Thu, May 2, 23:03</span>, <span class="temp">25°C</span><!-- Add this line for temperature display -->
@@ -47,15 +53,26 @@
   <script>
     let colophonVisible = false;
 
-    function toggleColophon() {
+    function toggleInfo() {
+      var imageContainer = document.querySelector('.image');
       var colophon = document.querySelector('.colophon');
-      if (!colophonVisible) {
-        colophon.style.display = 'block';
-        colophonVisible = true;
+
+      if (imageContainer.style.display === 'none') {
+        imageContainer.style.display = 'block';
+        colophon.style.display = 'none';
       } else {
-        colophon.style.display = colophon.style.display === 'none' ? 'block' : 'none';
+        imageContainer.style.display = 'none';
+        colophon.style.display = 'block';
+      }
+
+      // Apply centering styles dynamically based on whether the image container is displayed or not
+      if (imageContainer.style.display === 'block') {
+        imageContainer.style.textAlign = 'center';
+      } else {
+        imageContainer.style.textAlign = ''; // Reset to default if the container is hidden
       }
     }
+
 
     function updateTime() {
          var now = new Date();
@@ -73,7 +90,7 @@
          // Update text content based on the time of day
          var activityElement = document.querySelector('.footer .activity');
          if (hour >= 6 && hour < 17) {
-           activityElement.textContent = 'No activity';
+           activityElement.textContent = 'No croaking';
          } else {
            activityElement.textContent = 'Now croaking';
          }
