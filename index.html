@@ -1,111 +1,134 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
   <link rel="stylesheet" href="style.css">
   <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta http-equiv="Content-Language" content="de, fr, it, en">
-        <meta name="author" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta http-equiv="Content-Language" content="de, fr, it, en">
+  <meta name="author" content="">
 </head>
+
 <body>
 
+  <audio id="audioPlayer" controls>
+    <source src="serenade.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
 
-
-<div class='header'>
-          Nocturnal Serenade
-      <br>Kalkberg, 21339 Lüneburg, DE
-</div>
-
-<div class='lbutton'>
-    Play
-</div>
-
-<div class='rbutton' onclick="toggleColophon()">
-    Info
- </div>
-
-<div class='colophon'>
-  Experience the enchantment of the Lüneburg’s Kalkberg in April-June. A pit with a pond which once was a rock… Here we• the croaking frogs• greet wonderers with our nocturnes… As in an old tales• we transform the natural world into the magical realm… Amidst the ancient limestone formations• lush greenery, and bouquet of the lilac• we enamour you with our vibrations… As night descends• step into the the infinitely channeled soundscape• where our chorus fills the air with a sonic adventure…
-</div>
-
-
-
-<div class='footer'>
-  <div class='menu' onclick="toggleColophon()">
-    <span class="button">Play</span>&ensp;
-    <span class="button">Info</span>
+  <div class='header'>
+    Nocturnal Serenade
+    <br>Kalkberg, 21339 Lüneburg, DE
   </div>
-Now singing <br>
-  <span class="date-time">Thu, May 2, 23:03</span>, <span class="temp">25°C</span><!-- Add this line for temperature display -->
-</div>
 
-<script>
-let colophonVisible = false;
+  <div class='lbutton playButton' onclick="playAudio()"> <!-- Add 'playButton' class to the play button and call the playAudio function when clicked -->
+    Play
+  </div>
 
-function toggleColophon() {
-  var colophon = document.querySelector('.colophon');
-  if (!colophonVisible) {
-    colophon.style.display = 'block';
-    colophonVisible = true;
-  } else {
-    colophon.style.display = colophon.style.display === 'none' ? 'block' : 'none';
-  }
-}
+  <div class='rbutton' onclick="toggleColophon()">
+    Info
+  </div>
 
-function updateTime() {
-  var now = new Date(); // Get current date and time
-  var options = { timeZone: 'Europe/Berlin', weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false, day: 'numeric', formatMatcher: 'best fit' };
-  var dateString = new Intl.DateTimeFormat('en-DE', options).format(now); // Format the date and time for Germany's timezone
-  var dateTimeElement = document.querySelector('.footer .date-time');
-  if (dateTimeElement) {
-    dateTimeElement.textContent = dateString;
-  } else {
-    console.error('Date/time element not found');
-  }
-}
+  <div class='colophon'>
+    Experience the enchantment of the Lüneburg’s Kalkberg in April-June. A pit with a pond which once was a rock… Here we• the croaking frogs• greet wonderers with our nocturnes… As in an old tales• we transform the natural world into the magical realm… Amidst the ancient limestone formations• lush greenery, and bouquet of the lilac• we enamour you with our vibrations… As night descends• step into the the infinitely channeled soundscape• where our chorus fills the air with a sonic adventure…
+  </div>
 
+  <div class='footer'>
+    <div class='menu'>
+      <span class="button playButton" onclick="playAudio()">Play</span>&ensp;
+      <span class="button" onclick="toggleColophon()">Info</span>
+    </div>
+    Now singing <br>
+    <span class="date-time">Thu, May 2, 23:03</span>, <span class="temp">25°C</span><!-- Add this line for temperature display -->
+  </div>
 
-async function updateTemperature() {
-  const url = 'https://api.brightsky.dev/current_weather?lat=53.2484&lon=10.3969';
-  const options = { method: 'GET', headers: { Accept: 'application/json' } };
+  <script>
+    let colophonVisible = false;
 
-  try {
-    const response = await fetch(url, options);
-    const data = await response.json();
-    console.log(data);
-
-    const temperature = Math.round(data.weather.temperature);
-    console.log('Temperature:', temperature);
-
-    const tempElement = document.querySelector('.footer .temp');
-
-    if (tempElement) {
-      tempElement.textContent = temperature + '°C';
-    } else {
-      console.error('Temp element not found');
+    function toggleColophon() {
+      var colophon = document.querySelector('.colophon');
+      if (!colophonVisible) {
+        colophon.style.display = 'block';
+        colophonVisible = true;
+      } else {
+        colophon.style.display = colophon.style.display === 'none' ? 'block' : 'none';
+      }
     }
-  } catch (error) {
-    console.error(error);
-  }
-}
 
-// Call updateTime function initially and every second to continuously update the date and time
-updateTime();
-setInterval(updateTime, 1000);
+    function updateTime() {
+      var now = new Date(); // Get current date and time
+      var options = {
+        timeZone: 'Europe/Berlin',
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: false,
+        day: 'numeric',
+        formatMatcher: 'best fit'
+      };
+      var dateString = new Intl.DateTimeFormat('en-DE', options).format(now); // Format the date and time for Germany's timezone
+      var dateTimeElement = document.querySelector('.footer .date-time');
+      if (dateTimeElement) {
+        dateTimeElement.textContent = dateString;
+      } else {
+        console.error('Date/time element not found');
+      }
+    }
 
-// Call updateTemperature function initially and then every 5 minutes to fetch and display the temperature
-updateTemperature();
-setInterval(updateTemperature, 5 * 60 * 1000); // Update temperature every 5 minutes
 
+    async function updateTemperature() {
+      const url = 'https://api.brightsky.dev/current_weather?lat=53.2484&lon=10.3969';
+      const options = {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json'
+        }
+      };
 
+      try {
+        const response = await fetch(url, options);
+        const data = await response.json();
+        console.log(data);
 
+        const temperature = Math.round(data.weather.temperature);
+        console.log('Temperature:', temperature);
 
+        const tempElement = document.querySelector('.footer .temp');
 
- </script>
+        if (tempElement) {
+          tempElement.textContent = temperature + '°C';
+        } else {
+          console.error('Temp element not found');
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    // Call updateTime function initially and every second to continuously update the date and time
+    updateTime();
+    setInterval(updateTime, 1000);
+
+    // Call updateTemperature function initially and then every 5 minutes to fetch and display the temperature
+    updateTemperature();
+    setInterval(updateTemperature, 5 * 60 * 1000); // Update temperature every 5 minutes
+
+    function playAudio() {
+          var audio = document.getElementById('audioPlayer');
+          if (audio.paused) {
+            audio.play();
+            document.querySelectorAll('.playButton').forEach(button => button.textContent = 'Stop'); // Change button text to 'Stop'
+          } else {
+            audio.pause();
+            document.querySelectorAll('.playButton').forEach(button => button.textContent = 'Play'); // Change button text to 'Play'
+          }
+        }
+  </script>
 
 </body>
+
 </html>

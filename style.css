@@ -54,6 +54,11 @@ body {
   left: -0.5vh; /* Adjust the left offset as needed */
   transform: translateY(-50%) rotate(-90deg); /* Rotate counterclockwise */
   z-index: 1000;
+  text-decoration: none; /* Remove default underline */
+}
+.lbutton:hover {
+  text-decoration: underline; /* Add underline on hover */
+  cursor: pointer; /* Change cursor to pointer on hover */
 }
 
 
