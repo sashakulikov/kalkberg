@@ -1,5 +1,6 @@
 // Function to toggle display of information section
 function toggleInfo() {
+    console.log('Toggle info called'); // Debugging statement
     var colophon = document.querySelector('.colophon');
     if (colophon.style.display === 'none' || colophon.style.display === '') {
         colophon.style.display = 'block'; // Show the colophon if it's hidden
@@ -10,6 +11,7 @@ function toggleInfo() {
 
 // Function to play or pause the audio
 function playAudio() {
+    console.log('Play audio called'); // Debugging statement
     var audio = document.getElementById('audioPlayer');
     if (audio.paused) {
         audio.play(); // Start playing the audio
@@ -24,6 +26,7 @@ function playAudio() {
 
 // Function to update the date and time
 function updateTime() {
+    console.log('Update time called'); // Debugging statement
     var now = new Date();
     var hour = now.getHours();
     // Options for date formatting
@@ -62,6 +65,7 @@ function updateTime() {
 
 // Function to update the temperature
 async function updateTemperature() {
+    console.log('Update temperature called'); // Debugging statement
     const url = 'https://api.brightsky.dev/current_weather?lat=53.2484&lon=10.3969';
     const options = {
         method: 'GET',
@@ -95,5 +99,3 @@ setInterval(updateTemperature, 300000); // 300000 milliseconds = 5 minutes
 // Call updateTime function initially and every second to continuously update the date and time
 updateTime();
 setInterval(updateTime, 1000);
-
-import { inject } from "@vercel/analytics" 
