@@ -2,15 +2,17 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="style.css">
+
+
+  <!-- Meta tags -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <link rel="icon" type="image/png" href="favicon.png">
-  <html lang="en-GB">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="media/favicon.png">
 
   <!-- HTML Meta Tags -->
   <title>Nocturnal Serenade</title>
@@ -21,7 +23,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Nocturnal Serenade">
   <meta property="og:description" content="Immerse in the enchanting nocturnal melodies of croaking frogs at Lüneburg's Kalkberg.">
-  <meta property="og:image" content="https://nocturnalserena.de/open_graph.png">
+  <meta property="og:image" content="https://nocturnalserena.de/media/open_graph.png">
 
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
@@ -29,150 +31,67 @@
   <meta property="twitter:url" content="https://nocturnalserena.de">
   <meta name="twitter:title" content="Nocturnal Serenade">
   <meta name="twitter:description" content="Immerse in the enchanting nocturnal melodies of croaking frogs at Lüneburg's Kalkberg.">
-  <meta name="twitter:image" content="https://nocturnalserena.de/open_graph.png">
+  <meta name="twitter:image" content="https://nocturnalserena.de/media/open_graph.png">
 
-  <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="style.css">
 
+  <!-- Link the JavaScript file and set it to load after the page content -->
+  <script src="script.js" defer></script>
 
 </head>
 
 <body>
 
- <video autoplay loop muted playsinline>
-  <source src="nocturnal_frogs.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+  <!-- Video element for background video -->
+  <video autoplay loop muted playsinline>
+    <source src="media/nocturnal_frogs.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
+  <!-- Audio element for playing the frog sounds -->
   <audio id="audioPlayer" controls>
     <source src="https://dl.dropbox.com/scl/fi/5trcqms4uyur5nr817psp/nocturnalserenade.mp3?rlkey=5wry4wtw9q2gf08oru3cjyy7r&st=bbk8ivpi" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
 
+  <!-- Header section -->
   <div class='header'>
     Nocturnal Serenade
     <br><a target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/eaZ2kZXRosPMD5mSA">Kalkberg• 21339 Lüneburg, DE</a>
   </div>
 
-  <div class='lbutton playButton' onclick="playAudio()"> <!-- Add 'playButton' class to the play button and call the playAudio function when clicked -->
+  <!-- Play button -->
+  <div class='lbutton playButton' onclick="playAudio()">
     Play
   </div>
 
+  <!-- Info button -->
   <div class='rbutton' onclick="toggleInfo()">
     Info
   </div>
 
+  <!-- Information section -->
   <div class='colophon'>
     Experience the enchantment of the Lüneburg’s Kalkberg from April till June… A pit with a pond which once was a rock. Here we• the croaking frogs• greet wonderers with our nocturnes… Like in fairytales• we transform the natural world into the magical realm… Amidst the ancient limestone formations• lush greenery• and bouquet of the lilac• we enamour you with our vibrations… As night descends• step into the infinitely channeled soundscape• where our chorus fills the air with a sonic adventure…
   </div>
 
+  <!-- Footer section -->
   <div class='footer'>
+
+    <!-- Menu buttons -->
     <div class='menu'>
       <span class="button playButton" onclick="playAudio()">Play</span>&ensp;
       <span class="button" onclick="toggleInfo()">Info</span>
     </div>
+
+    <!-- Activity indicator -->
     <span class="activity">Now croaking</span> <br>
-    <span class="date-time">Thu, May 2, 23:03</span>, <span class="temp">25°C</span><!-- Add this line for temperature display -->
+
+    <!-- Date and time display -->
+    <span class="date-time">Thu, May 2, 23:03</span>, <span class="temp">25°C</span>
+
   </div>
-
-  <script>
-
-  function toggleInfo() {
-      var colophon = document.querySelector('.colophon');
-      if (colophon.style.display === 'none' || colophon.style.display === '') {
-          colophon.style.display = 'block'; // Show the colophon if it's hidden
-      } else {
-          colophon.style.display = 'none'; // Hide the colophon if it's visible
-      }
-  }
-
-  // Function to play or pause the audio
-  function playAudio() {
-      var audio = document.getElementById('audioPlayer');
-      if (audio.paused) {
-          audio.play();
-          document.querySelectorAll('.playButton').forEach(button => button.textContent = 'Stop');
-      } else {
-          audio.pause();
-          document.querySelectorAll('.playButton').forEach(button => button.textContent = 'Play');
-      }
-  }
-
-  // Function to update the date and time
-  function updateTime() {
-      var now = new Date();
-      var hour = now.getHours();
-      var options = {
-          timeZone: 'Europe/Berlin',
-          weekday: 'short',
-          month: 'short',
-          day: 'numeric',
-          hour: 'numeric',
-          minute: 'numeric',
-          hour12: false,
-          formatMatcher: 'best fit'
-      };
-      var dateString = new Intl.DateTimeFormat('en-UK', options).format(now);
-      // Replace commas with bullet symbols after weekdays and months
-      dateString = dateString.replace(/(Sun|Mon|Tue|Thu),/g, '$1•');
-      dateString = dateString.replace(/(Jan|Mar|Apr|May|Jun|Nov|Dec),/g, '$1•');
-
-      // Remove "at" from the date string
-       dateString = dateString.replace(/\sat\s/g, ' '); // Remove "at" surrounded by spaces
-
-      var dateTimeElement = document.querySelector('.footer .date-time');
-      if (dateTimeElement) {
-          dateTimeElement.textContent = dateString;
-      } else {
-          console.error('Date/time element not found');
-      }
-
-      // Update text content based on the time of day
-      var activityElement = document.querySelector('.footer .activity');
-      if (hour >= 6 && hour < 19) {
-        activityElement.textContent = 'No croaking';
-      } else {
-        activityElement.textContent = 'Now croaking';
-      }
-  }
-
-  // Function to update the temperature
-  async function updateTemperature() {
-      const url = 'https://api.brightsky.dev/current_weather?lat=53.2484&lon=10.3969';
-      const options = {
-          method: 'GET',
-          headers: {
-              Accept: 'application/json'
-          }
-      };
-
-      try {
-          const response = await fetch(url, options);
-          const data = await response.json();
-          console.log(data);
-
-          const temperature = Math.round(data.weather.temperature);
-          console.log('Temperature:', temperature);
-
-          const tempElement = document.querySelector('.footer .temp');
-
-          if (tempElement) {
-              tempElement.textContent = temperature + '°C'; // Add '°C' to display the temperature unit
-          } else {
-              console.error('Temp element not found');
-          }
-      } catch (error) {
-          console.error(error);
-      }
-  }
-
-  updateTemperature();
-  setInterval(updateTemperature, 300000); // 300000 milliseconds = 5 minutes
-
-  // Call updateTime function initially and every second to continuously update the date and time
-  updateTime();
-  setInterval(updateTime, 1000);
-
-  </script>
 
 </body>
 

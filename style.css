@@ -1,10 +1,12 @@
+/* Font face declaration */
 @font-face {
-font-family: "Hershey Kalkberg";
-src: url("HersheyKalkberg-Regular.woff") format("woff"),
-     url("HersheyKalkberg-Regular.woff2") format("woff2");
-font-display: swap;
+  font-family: "Hershey Kalkberg";
+  src: url("fonts/HersheyKalkberg-Regular.woff") format("woff"),
+       url("fonts/HersheyKalkberg-Regular.woff2") format("woff2");
+  font-display: swap;
 }
 
+/* Body styling */
 body {
   background-color: black !important;
   color: #00ff00;
@@ -18,12 +20,14 @@ body {
   overflow: hidden;
 }
 
+/* Styling for the colophon section */
 .colophon {
   -ms-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
 }
 
+/* Styling for the video element */
 video {
   position: fixed;
   top: 0;
@@ -34,11 +38,7 @@ video {
   z-index: -1; /* Place the video behind other content */
 }
 
-/*
-iframe#videoFrame {
-  z-index: -1;
-} */
-
+/* Styling for header and footer sections */
 .header, .footer {
   position: fixed;
   width: 100%;
@@ -46,19 +46,23 @@ iframe#videoFrame {
   right: 0;
 }
 
+/* Styling for anchor tags */
 a {
   text-decoration: none; /* Remove default underline */
   color: #00ff00;
 }
 
+/* Hover effect for anchor tags */
 a:hover {
-  text-decoration: underline; /* Remove default underline */
+  text-decoration: underline; /* Add underline on hover */
 }
 
+/* Styling for menu buttons */
 .menu {
   display: none;
 }
 
+/* Keyframe animation for glow effect */
 @keyframes glow {
   0% {
     text-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Initial glow effect */
@@ -71,7 +75,6 @@ a:hover {
   }
 }
 
-
 /* Media query for minimum font size */
 @media (max-height: 500px) {
   body {
@@ -80,12 +83,13 @@ a:hover {
   }
 }
 
+/* Styling for header, left button, right button, and footer sections */
 .header, .lbutton, .rbutton, .footer{
   text-align: center;
   z-index: 1000;
 }
 
-
+/* Styling for left button */
 .lbutton {
   position: fixed;
   top: 50%;
@@ -94,12 +98,14 @@ a:hover {
   z-index: 1000;
   text-decoration: none; /* Remove default underline */
 }
+
+/* Hover effect for left button */
 .lbutton:hover {
   text-decoration: underline; /* Add underline on hover */
   cursor: pointer; /* Change cursor to pointer on hover */
 }
 
-
+/* Styling for right button */
 .rbutton {
   position: fixed;
   top: 50%;
@@ -109,16 +115,18 @@ a:hover {
   text-decoration: none; /* Remove default underline */
 }
 
+/* Hover effect for right button */
 .rbutton:hover {
   text-decoration: underline; /* Add underline on hover */
   cursor: pointer; /* Change cursor to pointer on hover */
 }
 
+/* Styling for the colophon section */
 .colophon {
   position: absolute;
-top: 50%;
--ms-transform: translateY(-50%);
-transform: translateY(-50%);
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
   text-align: left;
   padding-left: 7%;
   padding-right: 7%;
@@ -128,32 +136,32 @@ transform: translateY(-50%);
   z-index: 999;
 }
 
+/* Styling to hide the default audio player */
 #audioPlayer {
-  display: none; /* Hide the default audio player */
+  display: none;
 }
 
+/* Styling for header section */
 .header {
   position: fixed;
-    width:100%;
-    top: 8px;
-    padding-bottom: 8px;
-
+  width:100%;
+  top: 8px;
+  padding-bottom: 8px;
 }
 
+/* Styling for footer section */
 .footer {
   position: fixed;
   width:100%;
-    bottom: 9px;
+  bottom: 9px;
 }
 
-
-
+/* Media query for smaller screens */
 @media (max-width: 700px) {
   body {
     font-size: 24px; /* Minimum font size */
     line-height: 26px; /* Adjust line height accordingly */
   }
-
   h1 {
     font-size: 24px;
   }
@@ -175,72 +183,52 @@ transform: translateY(-50%);
     right: 0px;
     display: none;
   }
-
   .menu {
     position: absolute;
     display: block;
-      text-align: center;
-      width: 100%;
-      bottom: 100px;
-        text-decoration: none; /* Remove default underline */
-
+    text-align: center;
+    width: 100%;
+    bottom: 100px;
+    text-decoration: none; /* Remove default underline */
   }
   .menu .button {
-  border: none;
-  cursor: pointer;
-}
-
-.menu .button:hover {
-  text-decoration: underline;
-}
+    border: none;
+    cursor: pointer;
   }
+  .menu .button:hover {
+    text-decoration: underline;
+  }
+}
 
+/* Media query for smaller heights */
 @media (max-height: 500px) {
   body {
     font-size: 22px; /* Minimum font size */
     line-height: 26px; /* Adjust line height accordingly */
   }
-  h1 {
-    font-size: 20px;
-  }
   .menu {
     display: none;
-}
-.lbutton {
-  display: block;
-}
-.rbutton {
-  display: block;
-}
-
-.colophon {
-  padding-left: 8%;
-  padding-right: 8%;
-}
-
+  }
+  .lbutton {
+    display: block;
+  }
+  .rbutton {
+    display: block;
+  }
+  .colophon {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
 }
 
+/* Media query for even smaller heights */
 @media (max-height: 350px) {
   body {
     font-size: 16px; /* Minimum font size */
     line-height: 18px; /* Adjust line height accordingly */
   }
-  h1 {
-    font-size: 16px;
+  .colophon {
+    padding-left: 8%;
+    padding-right: 8%;
   }
-  .menu {
-    display: none;
-}
-.lbutton {
-  display: block;
-}
-.rbutton {
-  display: block;
-}
-
-.colophon {
-  padding-left: 8%;
-  padding-right: 8%;
-}
-
 }
