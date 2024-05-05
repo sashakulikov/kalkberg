@@ -3,25 +3,23 @@ font-family: "Hershey Kalkberg";
 src: url("HersheyKalkberg-Regular.woff") format("woff"),
 }
 
-
-
-
 body {
   background-color: black !important;
   color: #00ff00;
   font-size: calc(2vw + 2vh);
   font-kerning: normal;
   font-family: "Hershey Kalkberg", Arial, sans-sans-serif;
-  line-height:calc(2vw + 2.5vh);
-  /* animation: glow 2s infinite; */
+  line-height: calc(2vw + 2.5vh);
   display: block;
-  margin: 0; /* Remove default body margin */
-  padding: 0; /* Remove default body padding */
-  overflow: hidden; /* Prevent scrollbars */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 
-
-
-
+.colophon {
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 video {
@@ -34,10 +32,10 @@ video {
   z-index: -1; /* Place the video behind other content */
 }
 
-/* iframe#videoFrame {
+/*
+iframe#videoFrame {
   z-index: -1;
 } */
-
 
 .header, .footer {
   position: fixed;
@@ -47,30 +45,30 @@ video {
 }
 
 a {
-    text-decoration: none; /* Remove default underline */
-    color: #00ff00;
+  text-decoration: none; /* Remove default underline */
+  color: #00ff00;
 }
 
 a:hover {
-      text-decoration: underline; /* Remove default underline */
+  text-decoration: underline; /* Remove default underline */
 }
 
 .menu {
   display: none;
 }
 
-/* @keyframes glow {
+@keyframes glow {
   0% {
     text-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Initial glow effect */
   }
   50% {
-    text-shadow: 0 0 20px rgba(0, 255, 0, 0.8); /* Intermediate glow effect */
+    text-shadow: 0 0 20px rgba(0, 255, 0, 2); /* Intermediate glow effect */
   }
   100% {
     text-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Final glow effect */
   }
 }
-*/
+
 
 /* Media query for minimum font size */
 @media (max-height: 500px) {
