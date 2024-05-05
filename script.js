@@ -95,3 +95,5 @@ setInterval(updateTemperature, 300000); // 300000 milliseconds = 5 minutes
 // Call updateTime function initially and every second to continuously update the date and time
 updateTime();
 setInterval(updateTime, 1000);
+
+import { inject } from "@vercel/analytics"
