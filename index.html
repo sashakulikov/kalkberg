@@ -7,7 +7,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
-
   <meta name="author" content="">
   <link rel="icon" type="image/png" href="favicon.png">
   <title>Nocturnal Serenade</title>
@@ -28,7 +27,7 @@
 
   <div class='header'>
     Nocturnal Serenade
-    <br><a target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/eaZ2kZXRosPMD5mSA">Kalkberg, 21339 Lüneburg, DE</a>
+    <br><a target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/eaZ2kZXRosPMD5mSA">Kalkberg• 21339 Lüneburg, DE</a>
   </div>
 
   <div class='lbutton playButton' onclick="playAudio()"> <!-- Add 'playButton' class to the play button and call the playAudio function when clicked -->
@@ -43,8 +42,6 @@
     Experience the enchantment of the Lüneburg’s Kalkberg from April till June… A pit with a pond which once was a rock. Here we• the croaking frogs• greet wonderers with our nocturnes… Like in fairytales• we transform the natural world into the magical realm… Amidst the ancient limestone formations• lush greenery• and bouquet of the lilac• we enamour you with our vibrations… As night descends• step into the infinitely channeled soundscape• where our chorus fills the air with a sonic adventure…
   </div>
 
-
-
   <div class='footer'>
     <div class='menu'>
       <span class="button playButton" onclick="playAudio()">Play</span>&ensp;
@@ -55,11 +52,7 @@
   </div>
 
   <script>
-  // JavaScript
 
-  // Function to toggle the display of the colophon
-  // Function to toggle the display of the colophon
-  // Function to toggle the display of the colophon
   function toggleInfo() {
       var colophon = document.querySelector('.colophon');
       if (colophon.style.display === 'none' || colophon.style.display === '') {
@@ -68,7 +61,6 @@
           colophon.style.display = 'none'; // Hide the colophon if it's visible
       }
   }
-
 
   // Function to play or pause the audio
   function playAudio() {
@@ -85,6 +77,7 @@
   // Function to update the date and time
   function updateTime() {
       var now = new Date();
+      var hour = now.getHours();
       var options = {
           timeZone: 'Europe/Berlin',
           weekday: 'short',
@@ -95,7 +88,7 @@
           hour12: false,
           formatMatcher: 'best fit'
       };
-      var dateString = new Intl.DateTimeFormat('en-DE', options).format(now);
+      var dateString = new Intl.DateTimeFormat('en-UK', options).format(now);
       // Replace commas with bullet symbols after weekdays and months
       dateString = dateString.replace(/(Sun|Mon|Tue|Thu),/g, '$1•');
       dateString = dateString.replace(/(Jan|Mar|Apr|May|Jun|Nov|Dec),/g, '$1•');
@@ -109,16 +102,19 @@
       } else {
           console.error('Date/time element not found');
       }
+
+      // Update text content based on the time of day
+      var activityElement = document.querySelector('.footer .activity');
+      if (hour >= 6 && hour < 19) {
+        activityElement.textContent = 'No croaking';
+      } else {
+        activityElement.textContent = 'Now croaking';
+      }
   }
 
   // Call updateTime function initially and every second to continuously update the date and time
   updateTime();
   setInterval(updateTime, 1000);
-
-  // Call updateTemperature function initially and then every 5 minutes to fetch and display the temperature
-  updateTemperature();
-  setInterval(updateTemperature, 5 * 60 * 1000);
-
 
   </script>
 
