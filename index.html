@@ -8,12 +8,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <meta property="og:image" content="open_graph.png">
-  <meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+
   <link rel="icon" type="image/png" href="favicon.png">
-  <title>Nocturnal Serenade</title>
   <html lang="en-GB">
+
+  <!-- HTML Meta Tags -->
+  <title>Nocturnal Serenade</title>
+  <meta name="description" content="">
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="https://nocturnalserena.de">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nocturnal Serenade">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="https://nocturnalserena.de/open_graph.png">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="nocturnalserena.de">
+  <meta property="twitter:url" content="https://nocturnalserena.de">
+  <meta name="twitter:title" content="Nocturnal Serenade">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="https://nocturnalserena.de/open_graph.png">
+
+  <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+
+
 </head>
 
 <body>
@@ -114,6 +134,39 @@
         activityElement.textContent = 'Now croaking';
       }
   }
+
+  // Function to update the temperature
+  async function updateTemperature() {
+      const url = 'https://api.brightsky.dev/current_weather?lat=53.2484&lon=10.3969';
+      const options = {
+          method: 'GET',
+          headers: {
+              Accept: 'application/json'
+          }
+      };
+
+      try {
+          const response = await fetch(url, options);
+          const data = await response.json();
+          console.log(data);
+
+          const temperature = Math.round(data.weather.temperature);
+          console.log('Temperature:', temperature);
+
+          const tempElement = document.querySelector('.footer .temp');
+
+          if (tempElement) {
+              tempElement.textContent = temperature + '°C'; // Add '°C' to display the temperature unit
+          } else {
+              console.error('Temp element not found');
+          }
+      } catch (error) {
+          console.error(error);
+      }
+  }
+
+  updateTemperature();
+  setInterval(updateTemperature, 300000); // 300000 milliseconds = 5 minutes
 
   // Call updateTime function initially and every second to continuously update the date and time
   updateTime();
