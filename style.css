@@ -18,13 +18,14 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  hyphens: auto !important;
 }
 
 /* Styling for the colophon section */
 .colophon {
   -ms-hyphens: auto;
   -webkit-hyphens: auto;
-  hyphens: auto;
+    hyphens: auto !important;
 }
 
 /* Styling for the video element */
