@@ -1,6 +1,7 @@
 @font-face {
 font-family: "Hershey Kalkberg";
 src: url("HersheyKalkberg-Regular.woff") format("woff"),
+  font-display: swap; /* Specify font-display property */
 }
 
 body {

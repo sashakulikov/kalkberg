@@ -99,6 +99,10 @@
       // Replace commas with bullet symbols after weekdays and months
       dateString = dateString.replace(/(Sun|Mon|Tue|Thu),/g, '$1•');
       dateString = dateString.replace(/(Jan|Mar|Apr|May|Jun|Nov|Dec),/g, '$1•');
+
+      // Remove "at" from the date string
+       dateString = dateString.replace(/\sat\s/g, ' '); // Remove "at" surrounded by spaces
+
       var dateTimeElement = document.querySelector('.footer .date-time');
       if (dateTimeElement) {
           dateTimeElement.textContent = dateString;
