@@ -96,4 +96,4 @@ setInterval(updateTemperature, 300000); // 300000 milliseconds = 5 minutes
 updateTime();
 setInterval(updateTime, 1000);
 
-import { inject } from "@vercel/analytics"
+import { inject } from "@vercel/analytics" 
