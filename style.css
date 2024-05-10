@@ -184,6 +184,8 @@ a:hover {
   .colophon {
     padding-left: 2vh;
     padding-right: 1.8vh;
+    -ms-transform: translateY(-58%);
+    transform: translateY(-58%);
   }
   .header {
     top: 8px;
