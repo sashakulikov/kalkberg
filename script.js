@@ -99,3 +99,16 @@ setInterval(updateTemperature, 300000); // 300000 milliseconds = 5 minutes
 // Call updateTime function initially and every second to continuously update the date and time
 updateTime();
 setInterval(updateTime, 1000);
+
+
+function toggleInfo() {
+    var colophon = document.querySelector('.colophon');
+    var pressRelease = document.getElementById('pressRelease');
+    if (colophon.style.display === 'none' || colophon.style.display === '') {
+        colophon.style.display = 'block'; // Show the colophon if it's hidden
+        pressRelease.style.display = 'block'; // Show the press release
+    } else {
+        colophon.style.display = 'none'; // Hide the colophon if it's visible
+        pressRelease.style.display = 'none'; // Hide the press release
+    }
+}
