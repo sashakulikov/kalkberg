@@ -206,13 +206,14 @@ a:hover {
     width: 100%;
     bottom: 100px;
     text-decoration: none; /* Remove default underline */
+    text-shadow: 0 0 10px rgba(0, 255, 0, 1)
   }
   .menu .button {
     border: none;
     cursor: pointer;
   }
   .menu .button:hover {
-    text-decoration: underline;
+    text-shadow: 0 0 0px rgba(0, 0, 0, 0);
   }
 /*   #link {
     font-size: 12px;
