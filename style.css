@@ -53,13 +53,13 @@ video {
 
 /* Styling for anchor tags */
 a {
-  text-decoration: none; /* Remove default underline */
+  text-decoration: underline; /* Remove default underline */
   color: #00ff00;
 }
 
 /* Hover effect for anchor tags */
 a:hover {
-  text-decoration: underline; /* Add underline on hover */
+  text-decoration: none; /* Add underline on hover */
 }
 
 /* Styling for menu buttons */
@@ -106,12 +106,12 @@ a:hover {
   left: -0.5vh; /* Adjust the left offset as needed */
   transform: translateY(-50%) rotate(-90deg); /* Rotate counterclockwise */
   z-index: 1000;
-  text-decoration: none; /* Remove default underline */
+  text-decoration: underline; /* Remove default underline */
 }
 
 /* Hover effect for left button */
 .lbutton:hover {
-  text-decoration: underline; /* Add underline on hover */
+  text-decoration: none; /* Add underline on hover */
   cursor: pointer; /* Change cursor to pointer on hover */
 }
 
@@ -122,12 +122,12 @@ a:hover {
   right: 0vh; /* Fixed to the right edge */
   transform: translateY(-50%) rotate(90deg); /* Rotate clockwise */
   z-index: 1000;
-  text-decoration: none; /* Remove default underline */
+  text-decoration: underline; /* Remove default underline */
 }
 
 /* Hover effect for right button */
 .rbutton:hover {
-  text-decoration: underline; /* Add underline on hover */
+  text-decoration: none; /* Add underline on hover */
   cursor: pointer; /* Change cursor to pointer on hover */
 }
 
