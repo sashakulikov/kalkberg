@@ -113,7 +113,7 @@ a:hover {
 
 /* Hover effect for left button */
 .lbutton:hover {
-  text-decoration: underline; /* Add underline on hover */
+  text-decoration: none; /* Add underline on hover */
   cursor: pointer; /* Change cursor to pointer on hover */
   text-shadow: 0 0 0px rgba(0, 0, 0, 0);
 }
@@ -131,7 +131,7 @@ a:hover {
 
 /* Hover effect for right button */
 .rbutton:hover {
-  text-decoration: underline; /* Add underline on hover */
+  text-decoration: none; /* Add underline on hover */
   cursor: pointer; /* Change cursor to pointer on hover */
   text-shadow: 0 0 0px rgba(0, 0, 0, 0);
 }
