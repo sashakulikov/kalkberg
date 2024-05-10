@@ -53,13 +53,14 @@ video {
 
 /* Styling for anchor tags */
 a {
-  text-decoration: underline; /* Remove default underline */
+  text-decoration: none; /* Remove default underline */
   color: #00ff00;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 1)
 }
 
 /* Hover effect for anchor tags */
 a:hover {
-  text-decoration: none; /* Add underline on hover */
+  text-shadow: 0 0 0px rgba(0, 0, 0, 0); /* Glow effect */ /* Add underline on hover */
 }
 
 /* Styling for menu buttons */
@@ -106,13 +107,15 @@ a:hover {
   left: -0.5vh; /* Adjust the left offset as needed */
   transform: translateY(-50%) rotate(-90deg); /* Rotate counterclockwise */
   z-index: 1000;
-  text-decoration: underline; /* Remove default underline */
+  text-decoration: none; /* Remove default underline */
+  text-shadow: 0 0 10px rgba(0, 255, 0, 1)
 }
 
 /* Hover effect for left button */
 .lbutton:hover {
-  text-decoration: none; /* Add underline on hover */
+  text-decoration: underline; /* Add underline on hover */
   cursor: pointer; /* Change cursor to pointer on hover */
+  text-shadow: 0 0 0px rgba(0, 0, 0, 0);
 }
 
 /* Styling for right button */
@@ -122,13 +125,15 @@ a:hover {
   right: 0vh; /* Fixed to the right edge */
   transform: translateY(-50%) rotate(90deg); /* Rotate clockwise */
   z-index: 1000;
-  text-decoration: underline; /* Remove default underline */
+  text-decoration: none; /* Remove default underline */
+  text-shadow: 0 0 10px rgba(0, 255, 0, 1)
 }
 
 /* Hover effect for right button */
 .rbutton:hover {
-  text-decoration: none; /* Add underline on hover */
+  text-decoration: underline; /* Add underline on hover */
   cursor: pointer; /* Change cursor to pointer on hover */
+  text-shadow: 0 0 0px rgba(0, 0, 0, 0);
 }
 
 /* Styling for the colophon section */
