@@ -17,7 +17,9 @@ body {
   display: block;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+/*   overflow: hidden; */
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
   hyphens: auto !important;
 }
 
@@ -27,8 +29,8 @@ body {
 
 /* Styling for the colophon section */
 .colophon {
-  -ms-hyphens: auto;
-  -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
     hyphens: auto !important;
 }
 
@@ -147,8 +149,9 @@ a:hover {
   padding-right: 7%;
   left: 0px; /* Adjust the left offset as needed */
   display: none;
-  overflow: hidden;
+/*  overflow: hidden; */
   z-index: 999;
+
 }
 
 /* Styling to hide the default audio player */
