@@ -112,3 +112,47 @@ function toggleInfo() {
         pressRelease.style.display = 'none'; // Hide the press release
     }
 }
+
+// Function to update the language based on browser/system language
+function updateLanguage() {
+    // Check if the language is German
+    if (navigator.language.startsWith('de')) {
+        // Add 'deutsch' class to the body
+        document.body.classList.add('deutsch');
+    } else {
+        // Default to English
+        document.body.classList.remove('deutsch');
+    }
+}
+
+// Call updateLanguage function to set the language initially
+updateLanguage();
+
+// Function to toggle display of information section
+function toggleInfo() {
+    console.log('Toggle info called'); // Debugging statement
+    var colophon = document.querySelector('.colophon');
+    var pressRelease = document.getElementById('pressRelease');
+    if (colophon.style.display === 'none' || colophon.style.display === '') {
+        colophon.style.display = 'block'; // Show the colophon if it's hidden
+        pressRelease.style.display = 'block'; // Show the press release
+    } else {
+        colophon.style.display = 'none'; // Hide the colophon if it's visible
+        pressRelease.style.display = 'none'; // Hide the press release
+    }
+}
+
+// Function to translate text to German
+function translateToGerman() {
+    var language = navigator.language || navigator.userLanguage;
+    if (language.startsWith('de')) {
+        // Translate text to German
+        var header = document.querySelector('.header');
+        var colophon = document.querySelector('.colophon');
+        var activityElement = document.querySelector('.footer');
+        if (colophon) colophon.textContent = 'Erleben Sie den Zauber des Kalkbergs in Lüneburg von April bis Juni. Eine Grube mit einem Teich, die einst ein Felsen war. Hier begrüßen wir – die quakenden Frösche – Wanderer mit unseren nächtlichen Klängen. Wie in Märchen verwandeln wir die natürliche Welt in ein magisches Reich... Umgeben von alten Kalksteinformationen, üppigem Grün und dem Duft des Flieders, verzaubern wir Sie mit unseren Schwingungen. Wenn die Nacht hereinbricht, treten Sie ein in die unendlich kanalisierte Klanglandschaft, wo unser Chor die Luft mit einem klanglichen Abenteuer erfüllt.';
+    }
+}
+
+// Call the translation function initially
+translateToGerman();
