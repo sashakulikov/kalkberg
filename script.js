@@ -121,24 +121,20 @@ function translateToGerman() {
     var language = navigator.language || navigator.userLanguage;
     if (language.startsWith('de')) {
         // Translate specific text elements to German
-        var elements = document.querySelectorAll('body > *'); // Select all direct children of the body
+        var elementsToTranslate = [
+            { original: 'Contact', translated: 'Kontakt' },
+            { original: 'May–June• 8pm–5am', translated: 'Mai–Juni• 20:00–5:00' },
+            { original: 'Experience the enchantment of the Lüneburg’s Kalkberg from May till June… A pit with a pond which once was a rock. Here we• the croaking frogs• greet wonderers with our nocturnes… Like in fairytales• we transform the natural world into the magical realm… Amidst the ancient limestone formations• lush greenery• and bouquet of the lilac• we enamour you with our vibrations… As night descends• step into the infinitely channeled soundscape• where our chorus fills the air with a sonic adventure…',
+            translated: 'Erleben Sie den Zauber des Kalkbergs in Lüneburg von April bis Juni. Eine Grube mit einem Teich, die einst ein Felsen war. Hier begrüßen wir – die quakenden Frösche – Wanderer mit unseren nächtlichen Klängen. Wie in Märchen verwandeln wir die natürliche Welt in ein magisches Reich... Umgeben von alten Kalksteinformationen, üppigem Grün und dem Duft des Flieders, verzaubern wir Sie mit unseren Schwingungen. Wenn die Nacht hereinbricht, treten Sie ein in die unendlich kanalisierte Klanglandschaft, wo unser Chor die Luft mit einem klanglichen Abenteuer erfüllt.' }
+        ];
 
-        elements.forEach(element => {
-            // Check the text content of each element and translate accordingly
-            switch (element.textContent.trim()) {
-                case 'Contact':
-                    element.textContent = 'Kontakt';
-                    break;
-                case 'May–June• 8pm–5am':
-                    element.textContent = 'Mai–Juni, 20:00–5:00';
-                    break;
-                case 'Experience the enchantment of the Lüneburg’s Kalkberg from May till June… A pit with a pond which once was a rock. Here we• the croaking frogs• greet wonderers with our nocturnes… Like in fairytales• we transform the natural world into the magical realm… Amidst the ancient limestone formations• lush greenery• and bouquet of the lilac• we enamour you with our vibrations… As night descends• step into the infinitely channeled soundscape• where our chorus fills the air with a sonic adventure…':
-                    element.textContent = 'Erleben Sie den Zauber des Kalkbergs in Lüneburg von April bis Juni. Eine Grube mit einem Teich, die einst ein Felsen war. Hier begrüßen wir – die quakenden Frösche – Wanderer mit unseren nächtlichen Klängen. Wie in Märchen verwandeln wir die natürliche Welt in ein magisches Reich... Umgeben von alten Kalksteinformationen, üppigem Grün und dem Duft des Flieders, verzaubern wir Sie mit unseren Schwingungen. Wenn die Nacht hereinbricht, treten Sie ein in die unendlich kanalisierte Klanglandschaft, wo unser Chor die Luft mit einem klanglichen Abenteuer erfüllt.';
-                    break;
-                default:
-                    // Do nothing if the element's text content doesn't match any of the predefined translations
-                    break;
-            }
+        elementsToTranslate.forEach(element => {
+            // Select elements containing the original text
+            var elements = document.querySelectorAll(`:contains("${element.original}")`);
+            elements.forEach(el => {
+                // Replace the original text with the translated text
+                el.textContent = el.textContent.replace(element.original, element.translated);
+            });
         });
     }
 }
