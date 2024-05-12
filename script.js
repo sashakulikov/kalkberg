@@ -37,27 +37,3 @@ function toggleInfo() {
         pressRelease.style.display = 'none'; // Hide the press release
     }
 }
-
-// Translation function for German
-function translateToGerman() {
-    var language = navigator.language || navigator.userLanguage;
-    if (language.startsWith('de')) {
-        // Translation mappings for specific text elements
-        var translations = {
-            'Contact': 'Kontakt',
-            'May–June• 8pm–5am': 'Mai–Juni, 20:00–5:00',
-        };
-
-        // Translate elements by their structure or position in the document
-        var elementsToTranslate = document.querySelectorAll('.translate');
-        elementsToTranslate.forEach(element => {
-            var text = element.textContent.trim();
-            if (translations.hasOwnProperty(text)) {
-                element.textContent = translations[text];
-            }
-        });
-    }
-}
-
-// Call the translation function initially
-translateToGerman();
